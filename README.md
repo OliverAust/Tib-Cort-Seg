@@ -11,13 +11,13 @@ To use the Model (Model.zip) for your own µCT datasets follow these instruction
 ```
 nnUNet_install_pretrained_model_from_zip
 ```
-4. Convert your data into .nii.gz file format.
-5. Place your files in a new folder and create an output folder.
-6. Run: 
+4. (If performance on your data is poor, remove scale information and convert to 16-bit before running inferrence)
+5. Convert your data into .nii.gz file format.
+6. Place your files in a new folder and create an output folder.
+7. Run: 
 ```
 nnUNet_predict -i PATH_INPUT_FOLDER -o PATH_OUTPUT_FOLDER -tr nnUNetTrainerV2 -ctr nnUNetTrainerV2CascadeFullRes -m 3d_fullres -p nnUNetPlansv2.1 -t Task503_µCTTibiaBVM
 ```
-
 If the model performs poorly on your data, it might be possible to improve the performance on your data by up or downsampling of your data to simulate a resolution of 8.4µm. Similarly, you could try to adjust your intensity values to more closely resemble that of the training data. Example of a training data histogram:
 
 ![grafik](https://user-images.githubusercontent.com/90180771/146957782-899fbe40-e240-4a9d-b7f0-4e45fba9c421.png)
@@ -33,11 +33,10 @@ To use the Model (Model.zip) for your own µCT datasets follow these instruction
 ```
 nnUNet_install_pretrained_model_from_zip
 ```
-4. Downsample your data with the formula:
+4. Downsample your data with the following formula. Optionally, you can try to use a weaker downsampling factor but this was not tested. We tried to adjust the histogram and other image adjustments to increase the   performance of the model on XRM data but found no improvements.
 ```
     YourResolution / 8.4 = Downsampling_Factor
 ```
-Optionally, you can try to use a weaker downsampling factor but this was not tested. We tried to adjust the histogram and other image adjustments to increase the performance of the model on XRM data but found no improvements. 
 5. Convert your data into .nii.gz file format.
 6. Place your files in a new folder and create an output folder.
 7. Run: 
