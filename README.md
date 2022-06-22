@@ -46,6 +46,8 @@ nnUNet_predict -i PATH_INPUT_FOLDER -o PATH_OUTPUT_FOLDER -tr nnUNetTrainerV2 -c
 
 # Citation
 
-If you decide to use the model for your research, please cite as:
+If you decide to use the model for your research, please cite our paper! You can find the paper under:
 
-TBA
+Aust, Oliver, et al. "Tibia Cortical Bone Segmentation in Micro-CT and X-ray Microscopy Data Using a Single Neural Network." Bildverarbeitung für die Medizin 2022. Springer Vieweg, Wiesbaden, 2022. 333-338.
+
+Thank you!
