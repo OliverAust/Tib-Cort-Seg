@@ -5,14 +5,14 @@ Documentation and Model of the results presented in the publication "Tibia Corti
 
 To use the Model (Model.zip) for your own µCT datasets follow these instructions:
 
-1. Install the nnU-Net (https://github.com/MIC-DKFZ/nnUNet)
+1. Install [nnU-Net V1](https://github.com/MIC-DKFZ/nnUNet/tree/nnunetv1). It is important that you use nnUNet V1, not the newer V2. The model was trained with V1 and is thus only compatible with V1.
 2. Download the Model.zip file from this repository.
 3. Install the Model with the cmd line:
 ```
-nnUNet_install_pretrained_model_from_zip
+nnUNet_install_pretrained_model_from_zip /your/individual/path/to/Model.zip
 ```
 4. (If performance on your data is poor, remove scale information and convert to 16-bit before running inferrence)
-5. Convert your data into .nii.gz file format.
+5. Convert your data into .nii.gz file format. You can find a Python script to convert H5 files to .nii.gz (RawsToNiiGz.py) above.
 6. Place your files in a new folder and create an output folder.
 7. Run: 
 ```
@@ -27,17 +27,17 @@ If the model performs poorly on your data, it might be possible to improve the p
 
 To use the Model (Model.zip) for your own µCT datasets follow these instructions. If you already used the model for µCT data you can start from step 4:
 
-1. Install the nnU-Net (https://github.com/MIC-DKFZ/nnUNet)
+1. Install [nnU-Net V1](https://github.com/MIC-DKFZ/nnUNet/tree/nnunetv1). It is important that you use nnUNet V1, not the newer V2. The model was trained with V1 and is thus only compatible with V1.
 2. Download the Model.zip file from this repository.
 3. Install the Model with the cmd line:
 ```
-nnUNet_install_pretrained_model_from_zip
+nnUNet_install_pretrained_model_from_zip /your/individual/path/to/Model.zip
 ```
 4. Downsample your data with the following formula. Optionally, you can try to use a weaker downsampling factor but this was not tested. We tried to adjust the histogram and other image adjustments to increase the   performance of the model on XRM data but found no improvements.
 ```
     YourResolution / 8.4 = Downsampling_Factor
 ```
-5. Convert your data into .nii.gz file format.
+5. Convert your data into .nii.gz file format. You can find a Python script to convert H5 files to .nii.gz (RawsToNiiGz.py) above.
 6. Place your files in a new folder and create an output folder.
 7. Run: 
 ```
